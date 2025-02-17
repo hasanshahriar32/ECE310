@@ -1,3 +1,11 @@
+# Discrete Mathematics and Numerical Methods Sessional
+
+| Experiment Number | Experiment Name |
+|-------------------|-----------------|
+| [Experiment No: 1](#experiment-no-1) | Finding the root of the function f(x) =5xlog10(x) – 6 using Bisection Method |
+| [Experiment No: 2](#experiment-no-2) | [Add Experiment Name] |
+| [Experiment No: 3](#experiment-no-3) | [Add Experiment Name] |
+
 ## Experiment No: 1
 
 **Name of the Experiment:** Finding the root of the function f(x) =5xlog10(x) – 6 using Bisection Method. 
