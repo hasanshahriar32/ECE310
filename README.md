@@ -90,3 +90,90 @@ a          b        xr          fa        fb        fxr
 13  2.740479  2.740845  2.740662  -0.000731 0.000866  0.000068 
 The root is: 2.740570>>
 ```
+
+
+## Experiment No: 2
+
+**Name of the Experiment:** Finding the root of the function f(x) = x^3 - 4x - 9 = 0 using the False Position (Regula Falsi) Method.
+
+**Objective:** To find the root of the given function f(x) = x^3 - 4x - 9 = 0 using the False Position method with a tolerance rate of 0.001.
+
+**Theory:**
+
+The False Position (Regula Falsi) Method is a numerical technique for finding the root of a continuous function. It is similar to the Bisection Method but more efficient in certain cases because it approximates the root by interpolating a straight line between two points, rather than halving the interval. The method assumes that the root lies between two points where the function has opposite signs and iteratively refines the estimate by computing the intersection of the function with the x-axis.
+
+**Apparatus:**
+
+- A computer
+- Python (or Matlab) software for computation
+
+**Matlab Code:**
+
+```matlab
+clc; clear; close all;
+f=@(x) x^3-4*x-9;
+
+ a= input('Enter the value of a:  ');
+ b = input('Enter the value of b :  ');
+ e = input('Enter the error tolrent e: ');
+
+fa = f(a);
+fb = f(b);
+xr = (a*fb-b*fa)/(fb-fa);
+fxr = f(xr);
+n=0; present_root = xr; next_root = 0;
+
+if fa* fb> 0 
+    disp("initial values do not bracket the root");
+else 
+    disp('root using false position mehtod is as follos');
+    fprintf('step \t a \t\t b \t\t xr \t\t fxr \n');
+    while abs(next_root - present_root) > e
+        fprintf('%d \t %f \t %f \t %f \t %f\n',n,a,b,xr,fxr);
+        if fa*fxr<0
+            b = xr;
+            fb = f(b);
+        else
+            a = xr;
+            fa = f(a);
+        end
+        present_root = xr;
+        xr = (a*fb-b*fa)/(fb-fa);
+        fxr = f(xr);
+        next_root = xr;
+        n= n+1;
+    end
+end
+
+```
+
+**Result:**
+
+```matlab
+Enter the value of a:  
+1
+Enter the value of b :  
+5
+Enter the error tolrent e: 
+.001
+root using false position mehtod is as follos
+step 	 a 	    	 b 	       	 xr 		      fxr 
+0 	 1.000000 	 5.000000 	 1.444444 	 -11.764060
+1 	 1.444444 	 5.000000 	 1.832587 	 -10.175836
+2 	 1.832587 	 5.000000 	 2.136150 	 -7.797057
+3 	 2.136150 	 5.000000 	 2.351277 	 -5.406061
+4 	 2.351277 	 5.000000 	 2.492483 	 -3.485446
+5 	 2.492483 	 5.000000 	 2.580334 	 -2.141160
+6 	 2.580334 	 5.000000 	 2.633124 	 -1.276150
+7 	 2.633124 	 5.000000 	 2.664174 	 -0.746852
+8 	 2.664174 	 5.000000 	 2.682206 	 -0.432416
+9 	 2.682206 	 5.000000 	 2.692600 	 -0.248803
+10 	 2.692600 	 5.000000 	 2.698564 	 -0.142642
+11 	 2.698564 	 5.000000 	 2.701979 	 -0.081609
+12 	 2.701979 	 5.000000 	 2.703931 	 -0.046636
+13 	 2.703931 	 5.000000 	 2.705045 	 -0.026632
+```
+
+**Conclusion:**
+
+The False Position method successfully approximates the root of the equation f(x) = x^3 - 4x - 9 = 0 to the desired tolerance of 0.001. The method converges more quickly than the Bisection Method for certain functions and provides an accurate root approximation after several iterations, making it a reliable and efficient technique for solving nonlinear equations.
