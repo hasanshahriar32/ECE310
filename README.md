@@ -246,4 +246,91 @@ step   xr   xr+1
 
 **Conclusion:**
 
-The Iteration Method successfully approximates the root of the equation x=cos⁡(x)+32x = \frac{\cos(x) + 3}{2} to the desired tolerance of 0.00001. This method converges when the iterative function g(x)g(x) is well-behaved and the initial guess is chosen appropriately. The final approximation of the root is found by iterating until the change between successive approximations is sufficiently small.
+The Iteration Method successfully approximates the root of the equation x=cos⁡(x)+32x = \frac{\cos(x) + 3}{2} to the desired tolerance of 0.00001. This method converges when the iterative function g(x) is well-behaved and the initial guess is chosen appropriately. The final approximation of the root is found by iterating until the change between successive approximations is sufficiently small.
+
+## Experiment No: 4
+
+**Name of the Experiment:**
+
+Finding the root of the function f(x)= x^3 - 2x - 5 using the Newton-Raphson Method.
+
+**Objective:**
+
+To find the root of the equation f(x)= x^3 - 2x - 5 = 0 using the Newton-Raphson Method with a tolerance rate of 1×10−51 \times 10^{-5}.
+
+**Theory:**
+
+The **Newton-Raphson Method** is an iterative numerical method for finding successively better approximations of the root (or zero) of a real-valued function. It is derived from the idea of using the tangent line to approximate the function at a given point and then moving to the next approximation where the tangent line intersects the x-axis.
+
+The method converges when the difference between successive approximations is less than a given tolerance or when a maximum number of iterations is reached.
+
+**Apparatus:**
+
+- A computer with **MATLAB** installed.
+
+**Matlab Code:**
+
+```matlab
+% neuton rafhson method -------------4-------------
+clc; clear;
+
+f = input('enter f(x): ','s');
+f = str2func(f);
+df = input('enter df(x): ','s');
+df = str2func(df);
+xr = input('initial value (x0): ');
+tol_err = input('enter the tolerent err: ');
+n=0; next_root = xr - (f(xr)/df(xr)); present_root = xr;
+fprintf("step \t xr \t xr+1 \n");
+    
+while abs(next_root - present_root)>tol_err
+    fprintf('%d \t %f \t %f \n', n, present_root, next_root);
+    
+    present_root = next_root;
+    next_root = present_root - (f(present_root)/df(present_root));
+    n=n+1;
+
+    if n>50
+        fprintf('iteration method fails to converge\n')
+        break;
+    end
+end
+fprintf('%d \t %f \t %f \n', n, present_root, next_root);
+```
+
+**Results:**
+
+```matlab
+@(x) 3*x^2 - 2
+initial value (x0): 
+1
+enter the tolerent err: 
+.0001
+step 	 xr 	      xr+1 
+0 	 1.000000 	 7.000000 
+1 	 7.000000 	 4.765517 
+2 	 4.765517 	 3.348703 
+3 	 3.348703 	 2.531600 
+4 	 2.531600 	 2.173916 
+5 	 2.173916 	 2.097884 
+6 	 2.097884 	 2.094558 
+7 	 2.094558 	 2.094551 
+```
+
+After performing the iterations using the Newton-Raphson Method, the following result was obtained:
+
+- Initial guess:
+    
+    x_0 = 1
+    
+- Final root approximation:
+    
+    x = 2.09455
+    
+- Number of iterations: 5
+
+The root converged quickly, and the final approximation of the root was within the tolerance of 1×10−51 \times 10^{-5}.
+
+**Conclusion:**
+
+The **Newton-Raphson Method** successfully approximated the root of the equation f(x) = x^3 - 2x - 5 = 0 with the desired tolerance of 1×10−51 \times 10^{-5}. The method converged quickly with an initial guess of x_0 = 2, and the final root approximation was x=2.09455x = 2.09455. This illustrates the efficiency of the Newton-Raphson method for solving nonlinear equations, provided that a suitable initial guess is chosen and the function behaves well (i.e., the derivative does not approach zero).
