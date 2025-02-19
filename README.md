@@ -1,18 +1,18 @@
 # Discrete Mathematics and Numerical Methods Sessional
 
 
-| Experiment Number | Experiment Name |
-|-------------------|-----------------|
-| Experiment No: 1  | Finding the root of the function \( f(x) = 4e^{-x}\sin(x) - 1 \) using Bisection Method |
-| Experiment No: 2  | Finding the root of the function \( f(x) = x^3 - 4x - 9 \) using the False Position (Regula Falsi) Method |
-| Experiment No: 3  | Finding the root of the function \( \frac{\cos(x) + 3}{2} \) using the Iteration Method |
-| Experiment No: 4  | Finding the root of the function \( f(x) = x^3 - 2x - 5 \) using the Newton-Raphson Method |
-| Experiment No: 5  | Finding the approximate integral of \( f(x) = e^{-x^2} \) over the interval [0, 2] using the Trapezoidal Rule |
-| Experiment No: 6  | Numerical Integration of the function \( f(x) = 11 + 2x \) using Simpson’s 1/3 Rule |
-| Experiment No: 7  | Numerical Integration of the function \( f(x) = \frac{1}{1 + 10x^2} \) using Simpson’s 3/8 Rule |
-| Experiment No: 8  | Interpolation using Newton’s Forward Difference Method |
-| Experiment No: 9  | Interpolation using Newton’s Backward Difference Method |
-
+| Experiment Number | Experiment Name                                      | Page Number |
+|-------------------|------------------------------------------------------|-------------|
+| [Experiment No: 1](#experiment-no-1) | Finding the root of a function using Bisection Method             |             |
+| [Experiment No: 2](#experiment-no-2) | Finding the root of a function using False Position Method        |             |
+| [Experiment No: 3](#experiment-no-3) | Finding the root of a function using Iteration Method             |             |
+| [Experiment No: 4](#experiment-no-4) | Finding the root of a function using Newton-Raphson Method        |             |
+| [Experiment No: 5](#experiment-no-5) | Approximating the integral of a function using Trapezoidal Rule  |             |
+| [Experiment No: 6](#experiment-no-6) | Numerical Integration of a function using Simpson’s 1/3 Rule     |             |
+| [Experiment No: 7](#experiment-no-7) | Numerical Integration of a function using Simpson’s 3/8 Rule     |             |
+| [Experiment No: 8](#experiment-no-8) | Interpolation using Newton’s Forward Difference Method           |             |
+| [Experiment No: 9](#experiment-no-9) | Interpolation using Newton’s Backward Difference Method          |             |
+---
 
 ## Experiment No: 1
 
