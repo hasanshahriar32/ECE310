@@ -1,6 +1,5 @@
 # Discrete Mathematics and Numerical Methods Sessional
 
-Here is the filled experiment index table:
 
 | Experiment Number | Experiment Name |
 |-------------------|-----------------|
@@ -14,7 +13,6 @@ Here is the filled experiment index table:
 | Experiment No: 8  | Interpolation using Newton’s Forward Difference Method |
 | Experiment No: 9  | Interpolation using Newton’s Backward Difference Method |
 
-This table provides a clear overview of the experiments and their respective objectives. Let me know if you need further assistance!
 
 ## Experiment No: 1
 
