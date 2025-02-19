@@ -603,3 +603,100 @@ Area using Simpson 3/8 rule: 0.397241
 **Conclusion:**
 
 Simpson’s 3/8 Rule effectively computed the numerical integral of the given function with high accuracy. The method is particularly useful for cases where the number of subintervals is a multiple of 3 and provides a reliable approximation for smooth functions.
+
+
+## Experiment No: 8
+
+**Name of the Experiment:** Interpolation using Newton’s Forward Difference Method
+
+**Objective:**
+
+To construct Newton’s Forward Difference Table and use it for interpolation to estimate function values at given points.
+
+**Theory:**
+
+Newton’s forward difference interpolation formula is derived using finite differences.
+
+This method is particularly useful for estimating function values at points within the given range when data points are evenly spaced.
+
+**Components Required:**
+
+1. Laptop
+2. MATLAB Software
+
+**MATLAB Code:**
+
+```matlab
+%%% Experiment-08: Newton's Forward Difference Interpolation Method %%%
+clc; clear;
+x = input('Enter values of x: ');
+y = input('Enter values of y: ');
+x_target = input('Enter target value of x: ');
+
+n = length(x);
+F_D_T = zeros(n,n+1);
+F_D_T(:,1) = x;
+F_D_T(:,2) = y;
+
+for jj=3:n+1
+    for ii=1:n-(jj-2);
+        F_D_T(ii,jj)=F_D_T(ii+1,jj-1)-F_D_T(ii,jj-1);
+    end
+end
+disp(F_D_T);
+h = x(2)-x(1);
+u = (x_target-x(1))/h;
+
+u_product=1;
+sum=F_D_T(1,2);
+
+for ii=2:n
+    u_product=u_product*(u-(ii-2));
+    sum=sum+((u_product*F_D_T(1,ii+1))/factorial(ii-1));
+end
+
+fprintf('The of %f is %f\n',x_target,sum);
+```
+
+---
+
+**Sample Input and Output:**
+
+```
+Enter values of x: 
+[1 3 5 7 9]
+Enter values of y: 
+[14 85 170 220 650]
+Enter target value of x: 
+8
+     1    14    71    14   -49   464
+     3    85    85   -35   415     0
+     5   170    50   380     0     0
+     7   220   430     0     0     0
+     9   650     0     0     0     0
+
+The of 8.000000 is 343.437500
+```
+
+**Forward Difference Table:**
+
+| x | f(x) | Δf | Δ²f | Δ³f | Δ⁴f |
+| --- | --- | --- | --- | --- | --- |
+| 1 | 14 | 71 | 14 | -49 | 464 |
+| 3 | 85 | 85 | -35 | 415 | 0 |
+| 5 | 170 | 50 | 380 | 0 | 0 |
+| 7 | 220 | 430 | 0 | 0 | 0 |
+| 9 | 650 | 0 | 0 | 0 | 0 |
+
+**Observations:**
+
+- The Newton’s Forward Difference Table was successfully constructed.
+- The interpolation formula was applied to estimate the function value at .
+    
+    x=8
+    
+- The method provided an accurate approximation using finite differences.
+
+**Conclusion:**
+
+Newton’s Forward Difference Method is an efficient approach for interpolating function values when the data points are evenly spaced. The results obtained demonstrate its accuracy and effectiveness in estimating function values within the given range.
