@@ -522,3 +522,84 @@ Area using sympsons rule: 4.700000
 **Conclusion:**
 
 Simpson’s 1/3 Rule provides an efficient and accurate way to compute definite integrals numerically. The results obtained closely approximate the actual integral value, demonstrating the effectiveness of the method for smooth functions.
+
+
+## Experiment No: 7
+
+**Name of the Experiment:** Numerical Integration of the Function 1/(1+10*(x^2)) using Simpson’s 3/8 Rule.
+
+**Objective:** To evaluate the definite integral of the given function using Simpson’s 3/8 Rule in MATLAB.
+
+**Theory:** Simpson’s 3/8 Rule is a numerical method used to approximate the integral of a function over a given interval [a,b]. It is an extension of Simpson’s 1/3 Rule and is particularly useful when the number of subintervals n is a multiple of 3. The rule is given by:
+
+**Apparatus:**
+
+- A computer
+- MATLAB Software
+
+**MATLAB Code:**
+
+```matlab
+clc; clear; 
+f = input('Enter f(x): ','s'); 
+f = str2func(f); 
+a = input('Enter lower limit: '); 
+b = input('Enter upper limit: '); 
+n = input('Enter number of segments: '); 
+h = (b-a)/n; 
+sum=0; 
+fprintf('xn \t\t\t f(xn)\n'); 
+for ii = 0:n 
+if ii==0 
+sum = sum + f(a); 
+elseif ii==n 
+sum = sum + f(b); 
+elseif rem(ii,3)~= 0 
+sum = sum + 3*f(a+ii*h); 
+else 
+sum = sum + 2*f(a+ii*h); 
+end 
+fprintf('%f \t %f\n',(a+ii*h),f(a+ii*h)); 
+end 
+sum = ((3*h)/8) * sum; 
+fprintf('Area using Simpson 3/8 rule: %f\n',sum); 
+```
+
+**Observations:**
+
+```matlab
+Enter f(x): 
+@(x) 1/(1+10*(x^2))
+Enter lower limit: 
+0
+Enter upper limit: 
+1
+Enter number of segments: 
+10
+xn 			 f(xn)
+0.000000 	 1.000000
+0.100000 	 0.909091
+0.200000 	 0.714286
+0.300000 	 0.526316
+0.400000 	 0.384615
+0.500000 	 0.285714
+0.600000 	 0.217391
+0.700000 	 0.169492
+0.800000 	 0.135135
+0.900000 	 0.109890
+1.000000 	 0.090909
+Area using Simpson 3/8 rule: 0.397241
+```
+
+- The integral of  was computed over the interval  using Simpson’s 3/8 Rule.
+    
+    f(x)=1/(1+10*(x^2))
+    
+    [0,1]
+    
+- The method accurately approximated the integral with 10 subintervals (a multiple of 3).
+- Compared to the 1/3 Rule, the 3/8 Rule can be more convenient when the number of subintervals is not even but is a multiple of 3.
+
+**Conclusion:**
+
+Simpson’s 3/8 Rule effectively computed the numerical integral of the given function with high accuracy. The method is particularly useful for cases where the number of subintervals is a multiple of 3 and provides a reliable approximation for smooth functions.
