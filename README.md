@@ -1,10 +1,20 @@
 # Discrete Mathematics and Numerical Methods Sessional
 
+Here is the filled experiment index table:
+
 | Experiment Number | Experiment Name |
 |-------------------|-----------------|
-| [Experiment No: 1](#experiment-no-1) | Finding the root of the function f(x) =5xlog10(x) – 6 using Bisection Method |
-| [Experiment No: 2](#experiment-no-2) | [Add Experiment Name] |
-| [Experiment No: 3](#experiment-no-3) | [Add Experiment Name] |
+| Experiment No: 1  | Finding the root of the function \( f(x) = 4e^{-x}\sin(x) - 1 \) using Bisection Method |
+| Experiment No: 2  | Finding the root of the function \( f(x) = x^3 - 4x - 9 \) using the False Position (Regula Falsi) Method |
+| Experiment No: 3  | Finding the root of the function \( \frac{\cos(x) + 3}{2} \) using the Iteration Method |
+| Experiment No: 4  | Finding the root of the function \( f(x) = x^3 - 2x - 5 \) using the Newton-Raphson Method |
+| Experiment No: 5  | Finding the approximate integral of \( f(x) = e^{-x^2} \) over the interval [0, 2] using the Trapezoidal Rule |
+| Experiment No: 6  | Numerical Integration of the function \( f(x) = 11 + 2x \) using Simpson’s 1/3 Rule |
+| Experiment No: 7  | Numerical Integration of the function \( f(x) = \frac{1}{1 + 10x^2} \) using Simpson’s 3/8 Rule |
+| Experiment No: 8  | Interpolation using Newton’s Forward Difference Method |
+| Experiment No: 9  | Interpolation using Newton’s Backward Difference Method |
+
+This table provides a clear overview of the experiments and their respective objectives. Let me know if you need further assistance!
 
 ## Experiment No: 1
 
