@@ -430,3 +430,95 @@ The **Trapezoidal Rule** successfully approximated the integral of the function 
 
 This experiment demonstrates the utility of the Trapezoidal Rule for numerical integration. It is an efficient method that provides good results, especially for smooth functions like f(x) = e^{-x^2}.
 
+
+## Experiment No: 6
+
+**Name of the Experiment:** Numerical Integration of the Function f(x)=11+2x using Simpson’s 1/3 Rule.
+
+**Objective:**
+
+To evaluate the definite integral of the given function using Simpson’s 1/3 Rule in MATLAB.
+
+**Theory:**
+
+Simpson’s 1/3 Rule is a numerical method used to approximate the integral of a function over a given interval [a, b]. It is based on the idea of approximating the function by a second-degree polynomial and then integrating this polynomial exactly. 
+
+**Apparatus:**
+
+- A computer
+- MATLAB Software
+
+**MATLAB Code:**
+
+```matlab
+% sympsons one third
+
+clc; clear; close all;
+
+f = input("enter f(x)", "s");
+f = str2func(f);
+
+a = input("enter lower limit: ");
+b = input("enter upper limit: ");
+n = input("enter number of segments: ");
+
+h = (b-a)/n;
+sum = 0;
+fprintf('xn \t\t f(xn)\n________________________ \n')
+for ii = 0:n
+    if ii == 0
+        sum = sum+ f(a);
+    elseif ii ~= 0
+        sum = sum + f(b);
+    elseif rem(ii,2) ==0
+        sum = sum + 4 * f(a + ii * h);
+
+    else
+        sum = sum + 2 * f(a + ii * h);
+
+    end
+    fprintf('%f\t %f\n', (a+ii*h), f(a+ii*h))
+end
+sum = (h/3)*sum;
+fprintf('Area using sympsons rule: %f\n', sum);
+```
+
+**Observations:**
+
+```matlab
+enter f(x)
+@(x) 11+2*x
+enter lower limit: 
+0
+enter upper limit: 
+1
+enter number of segments: 
+10
+xn 		 f(xn)
+________________________ 
+0.000000	 11.000000
+0.100000	 11.200000
+0.200000	 11.400000
+0.300000	 11.600000
+0.400000	 11.800000
+0.500000	 12.000000
+0.600000	 12.200000
+0.700000	 12.400000
+0.800000	 12.600000
+0.900000	 12.800000
+1.000000	 13.000000
+Area using sympsons rule: 4.700000
+```
+
+- The integral of  was computed over the interval  using Simpson’s 1/3 Rule.
+    
+    f(x)=11+2x
+    
+    [0,1]
+    
+- The method approximated the integral with high accuracy using 10 subintervals.
+- Increasing the number of subintervals improves accuracy but requires more computations.
+
+**Conclusion:**
+
+Simpson’s 1/3 Rule provides an efficient and accurate way to compute definite integrals numerically. The results obtained closely approximate the actual integral value, demonstrating the effectiveness of the method for smooth functions.
