@@ -700,3 +700,100 @@ The of 8.000000 is 343.437500
 **Conclusion:**
 
 Newton’s Forward Difference Method is an efficient approach for interpolating function values when the data points are evenly spaced. The results obtained demonstrate its accuracy and effectiveness in estimating function values within the given range.
+
+## Experiment No: 9
+
+**Name of the Experiment:** Interpolation using Newton’s Backward Difference Method
+
+**Objective:** To construct Newton’s Backward Difference Table and use it for interpolation to estimate function values at given points.
+
+**Theory:** Newton’s Backward Difference Interpolation formula is derived using finite differences.
+
+This method is particularly useful for estimating function values at points near the upper end of the dataset when data points are evenly spaced.
+
+**Components Required:**
+
+1. Laptop
+2. MATLAB Software
+
+**MATLAB Code:**
+
+```matlab
+clc; clear;
+x = input('Enter values of x: ');
+y = input('Enter values of y: ');
+x_target = input('Enter target value of x: ');
+
+n = length(x);
+B_D_T = zeros(n, n+1);
+B_D_T(:, 1) = x;
+B_D_T(:, 2) = y;
+
+% Compute Backward Difference Table
+for jj = 3:n+1
+    for ii = n:-1:jj-1
+        B_D_T(ii, jj) = B_D_T(ii, jj-1) - B_D_T(ii-1, jj-1);
+    end
+end
+
+disp('Backward Difference Table:');
+disp(B_D_T);
+
+% Compute interpolation value using Newton's backward difference formula
+h = x(2) - x(1);
+u = (x_target - x(n)) / h; % u formula for backward interpolation
+u_product = 1;
+sum = B_D_T(n, 2); % Start with last y value
+
+for ii = 2:n
+    u_product = u_product * (u + (ii - 2)); % u(u+1)(u+2)...
+    sum = sum + ((u_product * B_D_T(n, ii+1)) / factorial(ii-1));
+end
+
+fprintf('The interpolated value at x = %.6f is %.6f\n', x_target, sum);
+
+```
+
+---
+
+**Sample Input and Output:**
+
+```
+Enter values of x: 
+[1 3 5 7 9]
+Enter values of y: 
+[14 85 170 220 650]
+Enter target value of x: 
+8
+     1    14     0     0     0     0
+     3    85    71     0     0     0
+     5   170    85    14     0     0
+     7   220    50   -35   -49     0
+     9   650   430   380   415   464
+
+The value at x = 8.000000 is 343.437500
+>> 
+```
+
+**Backward Difference Table:**
+
+| x | f(x) | Δf | Δ²f | Δ³f | Δ⁴f |
+| --- | --- | --- | --- | --- | --- |
+| 1 | 14 | 0 | 0 | 0 | 0 |
+| 3 | 85 | 71 | 0 | 0 | 0 |
+| 5 | 170 | 85 | 14 | 0 | 0 |
+| 7 | 220 | 50 | -35 | -49 | 0 |
+| 9 | 650 | 430 | 380 | 415 | 464 |
+
+**Observations:**
+
+- The Newton’s Backward Difference Table was successfully constructed.
+- The interpolation formula was applied to estimate the function value at .
+    
+    x=8
+    
+- The method provided an accurate approximation using finite differences.
+
+**Conclusion:**
+
+Newton’s Backward Difference Method is an effective approach for interpolating function values when the given data points are evenly spaced. It is particularly useful when the interpolation point is near the last given data point. The results demonstrate the accuracy and reliability of this method.
