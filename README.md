@@ -12,7 +12,7 @@
 | [Experiment No: 7](#experiment-no-7) | Numerical Integration of a function using Simpson’s 3/8 Rule     |             |
 | [Experiment No: 8](#experiment-no-8) | Interpolation using Newton’s Forward Difference Method           |             |
 | [Experiment No: 9](#experiment-no-9) | Interpolation using Newton’s Backward Difference Method          |             |
----
+
 
 ## Experiment No: 1
 
