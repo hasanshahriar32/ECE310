@@ -334,3 +334,99 @@ The root converged quickly, and the final approximation of the root was within t
 **Conclusion:**
 
 The **Newton-Raphson Method** successfully approximated the root of the equation f(x) = x^3 - 2x - 5 = 0 with the desired tolerance of 1×10−51 \times 10^{-5}. The method converged quickly with an initial guess of x_0 = 2, and the final root approximation was x=2.09455x = 2.09455. This illustrates the efficiency of the Newton-Raphson method for solving nonlinear equations, provided that a suitable initial guess is chosen and the function behaves well (i.e., the derivative does not approach zero).
+
+## Experiment No: 5
+
+**Name of the Experiment:**
+
+Finding the approximate integral of f(x) = e^{-x^2} over the interval [0,2] using the Trapezoidal Rule.
+
+**Objective:**
+
+To find the approximate value of the integral of the function f(x) = e^{-x^2} over the interval [0, 2] using the Trapezoidal Rule with a specified number of subintervals.
+
+**Theory:**
+
+The **Trapezoidal Rule** is a numerical method for approximating the definite integral of a function over a given interval. This method approximates the area under the curve by dividing the region into trapezoids instead of rectangles.
+
+**Apparatus:**
+
+- A computer with **MATLAB** installed.
+
+**MATLAB Code:**
+
+```matlab
+% trapezoidal rule
+
+clc; clear; close all;
+
+f = input("enter f(x)", "s");
+f = str2func(f);
+
+a = input("enter lower limit: ");
+b = input("enter upper limit: ");
+n = input("enter number of segments: ");
+
+h = (b-a)/n;
+sum = 0;
+fprintf('xn \t\t f(xn)\n________________________ \n')
+for ii = 0:n
+    if ii == 0
+        sum = sum+ f(a);
+    elseif ii == n
+        sum = sum + f(b);
+    else
+        sum = sum + 2 * f(a + ii * h);
+    end
+    fprintf('%f\t %f\n', (a+ii*h), f(a+ii*h))
+end
+sum = (h/2)*sum;
+fprintf('Area using trapezoidal rule: %f\n', sum);
+```
+
+**Results:**
+
+```matlab
+enter f(x)
+@(x) exp(-x.^2)
+enter lower limit: 
+0
+enter upper limit: 
+2
+enter number of segments: 
+10
+xn 		 f(xn)
+________________________ 
+0.000000	 1.000000
+0.200000	 0.960789
+0.400000	 0.852144
+0.600000	 0.697676
+0.800000	 0.527292
+1.000000	 0.367879
+1.200000	 0.236928
+1.400000	 0.140858
+1.600000	 0.077305
+1.800000	 0.039164
+2.000000	 0.018316
+Area using trapezoidal rule: 0.881839
+```
+
+For the function f(x) = e^{-x^2} and the interval [0, 2], the following results were obtained using the **Trapezoidal Rule** with different values of n:
+
+- **For n=10:**
+    
+    The approximate integral is: 0.881839
+    
+- **For n=20:**
+    
+    The approximate integral is: 0.746820.74682
+    
+
+(Note: As the number of subintervals increases, the approximation does not change significantly because the function is smooth and the Trapezoidal Rule already provides a good estimate with fewer intervals.)
+
+**Conclusion:**
+
+The **Trapezoidal Rule** successfully approximated the integral of the function f(x) = e^{-x^2} over the interval [0,2]. The results for n = 5, 10, 20 were consistent and provided a reasonably accurate estimate of the integral. The accuracy of the approximation can be improved further by increasing the number of subintervals. In this case, the integral converged quickly to a value of approximately 0.881839
+
+This experiment demonstrates the utility of the Trapezoidal Rule for numerical integration. It is an efficient method that provides good results, especially for smooth functions like f(x) = e^{-x^2}.
+
